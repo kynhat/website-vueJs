@@ -1,0 +1,224 @@
+@use "var/vars" as vars;
+.header {
+  padding-top: 25px;
+
+  &__block-left {
+    padding: 0 15px;
+  }
+
+  &__title-center {
+    color: #b34b29;
+    white-space: nowrap;
+  }
+}
+
+// @each $breakpoint-key in $map-breakpoint-key {
+//  $breakpoint-width: map-get($map-breakpoint, $breakpoint-key);
+
+//  @include mz-media-custom-up($breakpoint-width) {
+//    .header {
+//     background-color: red;
+//    }
+//  }
+// }
+
+
+@include mz-media-custom-up($breakpoint-xs-min) {
+  .header {
+    width: 100%;
+
+    &__title-bottom {
+      list-style-position: inside;
+    }
+
+    &__wrapper {
+      display: flex;
+    }
+
+    &__menu {
+      background-color: vars.$state2-500;
+      font-size: 30px;
+      line-height: 25px;
+      color: #efd698;
+      cursor: pointer;
+      padding: 10px;
+      text-align: center;
+    }
+
+    &__menu-title {
+      display: none;
+      visibility: hidden;
+    }
+
+    &__block-left {
+      max-width: 35%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 40%;
+    }
+
+    &__block-center {
+      padding: 0 15px;
+      max-width: 65%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 65%;
+    }
+
+    &__title-top {
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: bold;
+      color: #38260e;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 30%;
+        border-top: #7a5a36 solid;
+        top: 50%;
+        right: 0;
+      }
+    }
+
+    &__title-center {
+      text-shadow: 3px 3px 0px rgb(0 0 0 / 50%);
+      -webkit-text-stroke-width: 2px;
+      font-size: 30px;
+      line-height: 60px;
+      letter-spacing: 3px;
+    }
+
+    &__title-bottom {
+      display: flex;
+      background: #7a5a36;
+      white-space: nowrap;
+      padding: 17px 15px;
+      width: 100%;
+
+      & li:nth-child(n) {
+        font-size: 7px;
+        color: white;
+        width: 100%;
+        font-weight: bold;
+      }
+
+      & li:not(:last-child) {
+        padding-right: 5px;
+      }
+
+      & li:first-child {
+        list-style-type: none;
+      }
+    }
+
+    &__title-special {
+      font-size: 8px;
+      font-weight: bold;
+      border-top: 3px solid #947b5f;
+      margin-top: 10px;
+      padding-top: 5px;
+      text-align: center;
+    }
+
+    &__block-right {
+      display: none;
+      visibility: hidden;
+    }
+
+    &__languge {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      column-gap: 10px;
+    }
+
+    &__languge-vn {
+      color: #41512b;
+      font-weight: bold;
+    }
+
+    &__languge-us {
+      color: #b34b29;
+      font-weight: bold;
+    }
+
+    &__video {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    &__video-wrapper {
+      position: relative;
+      
+      &::before {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 15%;
+        left: 5%;
+
+        border-top: 4px solid #b34b29;
+        border-left: 4px solid #b34b29;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        bottom:7%;
+        right: 5%;
+
+        border-bottom: 4px solid #b34b29;
+        border-right: 4px solid #b34b29;
+      }
+    }
+
+    &__breakpoint {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: red;
+      border: 1px solid red;
+      border-radius: 50%;
+      top: 22%;
+      left: 10%;
+      transition: all .3s ease;
+      animation: hidden-point 1s  infinite;
+    }
+  }
+}
+
+@include mz-media-custom-up($breakpoint-sm-min) {
+  .header {
+    background-color: blue;
+  }
+}
+
+@include mz-media-custom-up($breakpoint-md-min) {
+  .header {
+    background-color: yellow;
+  }
+}
+
+@include mz-media-custom-up($breakpoint-lg-min) {
+  .header {
+    background-color: pink;
+  }
+}
+
+@include mz-media-custom-up($breakpoint-xl-min) {
+  .header {
+    background-color: brown;
+  }
+}
+
+@keyframes hidden-point {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}

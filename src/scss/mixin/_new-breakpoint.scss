@@ -1,0 +1,17 @@
+@mixin mz-media-custom-up($_min-width) {
+  @media (min-width: $_min-width){
+    @content;
+  }
+}
+
+@mixin mz-media-custom-down($_max-width) {
+  @media (max-width: $_max-width){
+    @content;
+  }
+}
+
+@mixin mz-media-breakpoint-between($_min-width, $_max-width){
+  @media (min-width: $_min-width) and (max-width: $_max-width) {
+    @content;
+  }
+}

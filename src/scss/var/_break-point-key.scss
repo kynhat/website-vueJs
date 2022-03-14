@@ -1,0 +1,18 @@
+$breakpoint-xs-min: 0;
+$breakpoint-sm-min: 592px;
+$breakpoint-md-min: 780px; // old 752
+$breakpoint-lg-min: 992px;
+$breakpoint-xl-min: 1280px;
+$breakpoint-default: $breakpoint-xs-min;
+$breakpoint-key-default: 'xs';
+
+$map-breakpoint: (
+  'xs': $breakpoint-xs-min,
+  'sm': $breakpoint-sm-min,
+  'md': $breakpoint-md-min,
+  'lg': $breakpoint-lg-min,
+  'xl': $breakpoint-xl-min,
+);
+
+//List
+$map-breakpoint-key: map-keys($map-breakpoint);

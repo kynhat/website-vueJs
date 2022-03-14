@@ -1,0 +1,88 @@
+.special-food {
+  &__title {
+    font-size: 29px;
+    color: #41512b;
+    line-height: 48px;
+    text-align: center;
+    z-index: 1;
+    font-weight: bold;
+    width: 200px;
+    margin: 0 auto;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 46px;
+      height: 4px;
+      top: 0;
+      left: 0;
+      background-color: #7a5a36;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 46px;
+      height: 4px;
+      top: 0;
+      right: 0;
+      background-color: #7a5a36;
+    }
+  }
+
+  &__dashline {
+    position: absolute;
+    content: "";
+    width: calc(100% - 40px);
+    height: 97%;
+    top: 20px;
+    border-left: 2px saddlebrown dashed;
+    border-right: 2px saddlebrown dashed;
+    border-bottom: 2px saddlebrown dashed;
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 4px;
+      top: -2px;
+      left: 0;
+      width: 23px;
+      border-top: 2px dashed saddlebrown;
+
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      height: 4px;
+      top: -2px;
+      right: 0;
+      width: 23px;
+      border-top: 2px dashed saddlebrown;
+    }
+  }
+
+  &__wrapper {
+    padding: 0 20px 20px 20px;
+    position: relative;
+    border-left: 4px solid #7a5a36;
+    border-right: 4px solid #7a5a36;
+    border-bottom: 4px solid #7a5a36;
+    margin-top: 30px;
+  }
+
+  &__content-image {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    background-color: red;
+    height: 200px;
+    margin-top: 10px;
+  }
+
+  &__content {
+    margin-bottom: 10px;
+    line-height: 18px;
+    font-size: 15px;
+  }
+}
