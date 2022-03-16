@@ -1,7 +1,7 @@
 <template >
-  <Header />
-  <BgSite />
-  <BgDirty />
+  <Header/>
+  <BgSite/>
+  <BgDirty/>
   <Content/>
   <SpecialFood/>
 </template>

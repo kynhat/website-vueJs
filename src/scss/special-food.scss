@@ -1,3 +1,71 @@
+@use "../scss/mixin/mixin.scss" as mixin;
+
 .special-food {
-  
+  position: relative;
+
+  &__top {
+    &--left {
+      position: absolute;
+      top: 140px;
+      right: 193px;
+    }
+
+    &--right {
+      @include flex-box("row", "start", "center");
+      position: absolute;
+      top: 90px;
+      right: 0;
+      margin-right: 15px;
+    }
+  }
+
+  &__right {
+    &--center {
+      position: absolute;
+      right: 30px;
+      bottom: 304px;
+      transform: rotate(90deg);
+    }
+  }
+
+  &__bottom {
+    @include flex-box("", center, center);
+
+    &--left {
+      position: absolute;
+      bottom: 10px;
+      left: 50px;
+    }
+
+    &--right {
+      position: absolute;
+      bottom: 10px;
+      right: 18px;
+      text-align: end;
+    }
+  }
+
+  &__center {
+    padding: 200px 50px;
+  }
+
+  .image--large {
+    max-width: 100%;
+    height: auto;
+    animation: spinAround 8s infinite ease;
+  }
+
+  .image--small {
+    width: 100px;
+  }
+}
+
+@keyframes spinAround {
+  0% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(20deg);
+  }
 }
