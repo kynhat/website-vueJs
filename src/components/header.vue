@@ -10,9 +10,17 @@
             />
           </div>
 
-          <div class="header__menu">
+          <div class="header__menu" @click="toggleActiveClass()">
             <i class="fa fa-bars header__menu-bar"></i>
             <h3 class="header__menu-title">MENU</h3>
+          </div>
+
+          <div class="header__toggle">
+            <ul class="header__dropdown-menu">
+              <li header__dropdown-item v-for="item in titleMenu" :key="item.title">
+                {{ item.title }}
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -32,7 +40,9 @@
 
         <div class="header__block-right">
           <div class="header__info">
-            <span class="">ĐẬU HOMEMADE BÚN ĐẬU MẮM TÔM & MORE</span>
+            <span class="">ĐẬU HOMEMADE</span>
+            <span class="">BÚN ĐẬU MẮM TÔM &</span>
+            <span class="">MORE</span>
             <span class="fade-righr">******</span>
             <span class="header__address">
               91 Xuân Thuỷ, phường Thảo Điền, quận 2, TP. Hồ Chí Minh
@@ -53,7 +63,7 @@
 
       <div class="header__video-wrapper">
         <div class="header__breakpoint"></div>
-        <video class="header__video" muted loop Autoplay controls>
+        <video class="header__video" muted loop Autoplay>
           <source
             src="https://dauhomemade.vn/apps/uploads/2018/10/output.mp4"
             type="video/mp4"
@@ -67,7 +77,24 @@
 </template>
 
 <script>
+// import {
+
+// } from '../define';
 export default {
+  data() {
+    return {
+      titleMenu: [
+        { title: "TRANG CHỦ" },
+        { title: "MENU" },
+      ],
+    };
+  },
+  methods: {
+    toggleActiveClass() {
+      let toggle = document.querySelector(".header__toggle");
+      toggle.classList.toggle("is-show");
+    },
+  },
   name: "header",
   props: {
     msg: String,

@@ -1,62 +1,198 @@
 @use "../scss/mixin/mixin.scss" as mixin;
 
-.special-food {
-  position: relative;
+@include mz-media-custom-up($breakpoint-xs-min) {
+  .special-food {
+    position: relative;
 
-  &__top {
-    &--left {
-      position: absolute;
-      top: 140px;
-      right: 193px;
+    p {
+      line-height: 20px;
     }
 
-    &--right {
-      @include flex-box("row", "start", "center");
-      position: absolute;
-      top: 90px;
-      right: 0;
-      margin-right: 15px;
-    }
-  }
+    &__top {
+      &--left {
+        position: absolute;
+        top: 140px;
+        right: 193px;
+      }
 
-  &__right {
-    &--center {
-      position: absolute;
-      right: 30px;
-      bottom: 304px;
-      transform: rotate(90deg);
-    }
-  }
-
-  &__bottom {
-    @include flex-box("", center, center);
-
-    &--left {
-      position: absolute;
-      bottom: 10px;
-      left: 50px;
+      &--right {
+        @include flex-box(row, flex-start, center);
+        position: absolute;
+        top: 90px;
+        right: 0;
+        margin-right: 15px;
+      }
     }
 
-    &--right {
-      position: absolute;
-      bottom: 10px;
-      right: 18px;
-      text-align: end;
+    &__right {
+      &--center {
+        position: absolute;
+        right: 30px;
+        bottom: 304px;
+        transform: rotate(90deg);
+      }
+    }
+
+    &__bottom {
+      &--left {
+        position: absolute;
+        bottom: 10px;
+        left: 50px;
+      }
+
+      &--right {
+        position: absolute;
+        bottom: -15px;
+        right: 18px;
+        text-align: end;
+        @include flex-box(column, flex-end, flex-end);
+      }
+    }
+
+    &__center {
+      padding: 200px 50px;
+    }
+
+    .image--large {
+      max-width: 100%;
+      height: auto;
+      animation: spinAround 8s infinite ease;
+    }
+
+    .image--small {
+      width: 100px;
+    }
+
+    &__fried {
+      animation: rotate 1s infinite ease;
+    }
+
+    &__lemon {
+      animation: fadeIn 3s infinite linear;
+    }
+
+    &__kumquat {
+      animation: crescendo 1s infinite linear;
+    }
+
+    &__title-left {
+      animation: move-left 2s infinite linear;
+    }
+
+    &__title-right {
+      animation: move-right 2s infinite linear;
+    }
+
+    &__left-content {
+      display: none;
+      visibility: hidden;
     }
   }
+}
 
-  &__center {
-    padding: 200px 50px;
-  }
+@include mz-media-custom-up($breakpoint-sm-min) {
+  .special-food {
 
-  .image--large {
-    max-width: 100%;
-    height: auto;
-    animation: spinAround 8s infinite ease;
-  }
+    &__box {
+      position: relative;
+      padding: 0 16px;
+    }
 
-  .image--small {
-    width: 100px;
+    &__wrapper {
+      display: flex;
+    }
+
+    &__top {
+      &--left {
+        position: absolute;
+        top: 140px;
+        right: 193px;
+      }
+
+      &--right {
+        @include flex-box(row, flex-start, center);
+        position: absolute;
+        top: 90px;
+        right: 0;
+        margin-right: 15px;
+      }
+    }
+
+    &__right {
+      &--center {
+        position: absolute;
+        right: 30px;
+        bottom: 304px;
+        transform: rotate(90deg);
+      }
+    }
+
+    &__bottom {
+      &--left {
+        position: absolute;
+        bottom: 10px;
+        left: 50px;
+      }
+
+      &--right {
+        position: absolute;
+        bottom: 10px;
+        right: 18px;
+        text-align: end;
+        @include flex-box(column, flex-end, flex-end);
+      }
+    }
+
+    &__center {
+      padding: 200px 50px;
+    }
+
+    &__left-content {
+      display: block;
+      visibility: visible;
+      flex: 40%;
+      // padding: 0 16px;
+    }
+
+    &__fried {
+      animation: rotate 1s infinite ease;
+    }
+
+    &__lemon {
+      animation: fadeIn 3s infinite linear;
+    }
+
+    &__kumquat {
+      animation: crescendo 1s infinite linear;
+    }
+
+    &__title-left {
+      animation: none;
+    }
+
+    &__title-right {
+      animation: none;
+    }
+
+    &__content-top {
+    }
+
+    &__title-gray {
+      font-size: 30px;
+      line-height: 30px;
+      letter-spacing: 5px;
+      color: $state1-800;
+      margin: 20px 0;
+    }
+
+    &__title-red {
+      text-align: center;
+      font-size: 74px;
+      line-height: 69px;
+      padding-bottom: 20px;
+      margin-bottom: 5px;
+      color: $state2-500;
+    }
   }
 }
 
@@ -66,6 +202,49 @@
   }
 
   50% {
-    transform: rotate(20deg);
+    transform: rotate(-20deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes crescendo {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes move-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes move-left {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

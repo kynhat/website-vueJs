@@ -1,12 +1,15 @@
 <template>
-  <section class="special-food">
+  <section class="content">
     <div class="container">
-      <div class="special-food__wrapper">
-        <div class="special-food__dashline"></div>
-        <div class="special-food__title">ĐẶT SẢN ĐẤT HÀ THÀNH</div>
+      <div class="content__wrapper">
+        <div class="content__dashline"></div>
+        <div class="content__title">
+          <p>ĐẶT SẢN ĐẤT</p>
+          <p>HÀ THÀNH</p>
+        </div>
 
-        <div class="container">
-          <p class="special-food__content">
+        <div class="content__desc">
+          <p>
             Hà Nội là cái nôi của một nền ẩm thực giản dị, đơn sơ nhưng chứa
             đựng trong từng món ăn sự chăm chút, tinh tế và tỉ mỉ của người nấu.
             Chỉ cần một chút thay đổi trong cách chế biến thì người Hà Nội cũng
@@ -18,27 +21,45 @@
             nguyên liệu thêm vào, vì chỉ thiếu một thành phần thì phần linh hồn
             của món ăn đã mất đi quá nửa.
           </p>
-          <img
-            src="https://dauhomemade.vn/apps/uploads/2018/11/IMG_3740-300x200.jpg"
-            alt=""
-            class="special-food__content-image"
-          />
-          <img
-            src="https://dauhomemade.vn/apps/uploads/2018/10/bundau-e1542700354476.png"
-            alt=""
-            class="special-food__content-image"
-          />
+
+          <div class="content__box">
+            <div class="image-wrapper" v-for="item in listImage" :key="item.src">
+              <img
+                :src="IMAGE_URL + item.src"
+                alt=""
+                class="content__des-image"
+              />
+            </div>
+          </div>
         </div>
       </div>
-      <!-- special-food__wrapper -->
+      <!-- content__wrapper -->
     </div>
   </section>
 </template>
 
 <script>
+import { IMAGE_URL } from "../define";
 export default {
   data() {
-    return {};
+    return {
+      IMAGE_URL,
+      listImage: [
+        {
+          src: "2018/11/IMG_3740-300x200.jpg",
+        },
+        {
+          src: "2018/10/bundau-e1542700354476.png",
+        },
+        {
+          src: "2018/09/lau-3-400x270.gif",
+        },
+
+        {
+          src: "2018/09/lau-3-400x270.gif",
+        },
+      ],
+    };
   },
   name: "content",
   props: {

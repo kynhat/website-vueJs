@@ -6,6 +6,13 @@ $breakpoint-xl-min: 1280px;
 $breakpoint-default: $breakpoint-xs-min;
 $breakpoint-key-default: 'xs';
 
+
+$container-xs-width: 100%;
+$container-sm-width: 100%;
+$container-md-width: 100%;
+$container-lg-width: 968px;
+$container-xl-width: 1170px; 
+
 $map-breakpoint: (
   'xs': $breakpoint-xs-min,
   'sm': $breakpoint-sm-min,

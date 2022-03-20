@@ -4,6 +4,7 @@
   <BgDirty/>
   <Content/>
   <SpecialFood/>
+  <Menu/>
 </template>
 
 <script>
@@ -12,6 +13,7 @@ import BgSite from "./components/bg-site.vue";
 import BgDirty from "./components/bg-dirty.vue";
 import Content from "./components/content.vue";
 import SpecialFood from "./components/special-food.vue";
+import Menu from "./components/menu.vue";
 
 export default {
   props: {
@@ -23,7 +25,8 @@ export default {
     BgSite,
     BgDirty,
     Content,
-    SpecialFood
+    SpecialFood,
+    Menu,
   },
 };
 </script>

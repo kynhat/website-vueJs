@@ -1,16 +1,7 @@
 @use "var/vars" as vars;
-.header {
-  padding-top: 25px;
+// .header {
 
-  &__block-left {
-    padding: 0 15px;
-  }
-
-  &__title-center {
-    color: #b34b29;
-    white-space: nowrap;
-  }
-}
+// }
 
 // @each $breakpoint-key in $map-breakpoint-key {
 //  $breakpoint-width: map-get($map-breakpoint, $breakpoint-key);
@@ -22,32 +13,18 @@
 //  }
 // }
 
-
 @include mz-media-custom-up($breakpoint-xs-min) {
   .header {
     width: 100%;
+    padding-top: 25px;
 
-    &__title-bottom {
-      list-style-position: inside;
-    }
-
-    &__wrapper {
-      display: flex;
-    }
-
-    &__menu {
-      background-color: vars.$state2-500;
-      font-size: 30px;
-      line-height: 25px;
-      color: #efd698;
-      cursor: pointer;
-      padding: 10px;
-      text-align: center;
-    }
-
-    &__menu-title {
-      display: none;
-      visibility: hidden;
+    &__block-center {
+      padding: 0 15px;
+      max-width: 65%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      // flex-basis: 60%;
+      width: 100%;
     }
 
     &__block-left {
@@ -55,51 +32,71 @@
       flex-grow: 0;
       flex-shrink: 0;
       flex-basis: 40%;
+      padding: 0 15px;
     }
 
-    &__block-center {
-      padding: 0 15px;
-      max-width: 65%;
-      flex-grow: 0;
-      flex-shrink: 0;
-      flex-basis: 65%;
+    &__block-right {
+      display: none;
+      visibility: hidden;
+    }
+
+    &__breakpoint {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: $state2-500;
+      border: 1px solid $state2-500;
+      border-radius: 50%;
+      top: 22%;
+      left: 10%;
+      transition: all 0.3s ease;
+      animation: hidden-point 1s infinite;
+    }
+
+    &__dropdown-menu {
+      list-style-type: none;
+      border: dotted 1px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &__dropdown-menu li {
+      padding: 10px 5px;
+      width: 250px;
+
+      &:not(:last-child) {
+        border-bottom: 1px dashed;
+      }
     }
 
     &__title-top {
       font-size: 20px;
       line-height: 30px;
       font-weight: bold;
-      color: #38260e;
+      color: $accent2-700;
       position: relative;
 
       &::before {
         content: "";
         position: absolute;
         width: 30%;
-        border-top: #7a5a36 solid;
+        border-top: $accent1-600 solid;
         top: 50%;
         right: 0;
       }
     }
 
-    &__title-center {
-      text-shadow: 3px 3px 0px rgb(0 0 0 / 50%);
-      -webkit-text-stroke-width: 2px;
-      font-size: 30px;
-      line-height: 60px;
-      letter-spacing: 3px;
-    }
-
     &__title-bottom {
       display: flex;
-      background: #7a5a36;
+      list-style-position: inside;
+      background: $accent1-700;
       white-space: nowrap;
       padding: 17px 15px;
       width: 100%;
 
       & li:nth-child(n) {
         font-size: 7px;
-        color: white;
+        color: $accent3-50;
         width: 100%;
         font-weight: bold;
       }
@@ -116,33 +113,51 @@
     &__title-special {
       font-size: 8px;
       font-weight: bold;
-      border-top: 3px solid #947b5f;
+      border-top: 3px solid $accent1-700;
       margin-top: 10px;
       padding-top: 5px;
       text-align: center;
     }
 
-    &__block-right {
-      display: none;
-      visibility: hidden;
+    &__title-center {
+      color: $state2-400;
+      white-space: nowrap;
+      text-shadow: 3px 3px 0px rgb(0 0 0 / 50%);
+      -webkit-text-stroke-width: 2px;
+      font-size: 30px;
+      line-height: 60px;
+      letter-spacing: 3px;
+    }
+
+    &__toggle {
+      position: absolute;
+      content: "";
+      z-index: 1;
+      top: 190px;
+      padding: 15px;
+      background: $accent1-100
+        url(//dauhomemade.vn/apps/themes/bundau/css/../img/bgloop.jpg) no-repeat
+        center center/cover;
+      border: 3px solid $accent1-700;
+      font-size: 15px;
+      transition: all 0.3s;
+      transform: translateY(-50%) scaleY(0);
+      @include flex-box();
     }
 
     &__languge {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
+      @include flex-box(row, center, center);
       margin-top: 20px;
       column-gap: 10px;
     }
 
     &__languge-vn {
-      color: #41512b;
+      color: $state1-600;
       font-weight: bold;
     }
 
     &__languge-us {
-      color: #b34b29;
+      color: $state2-400;
       font-weight: bold;
     }
 
@@ -153,7 +168,7 @@
 
     &__video-wrapper {
       position: relative;
-      
+
       &::before {
         content: "";
         position: absolute;
@@ -162,8 +177,8 @@
         top: 15%;
         left: 5%;
 
-        border-top: 4px solid #b34b29;
-        border-left: 4px solid #b34b29;
+        border-top: 4px solid $state2-400;
+        border-left: 4px solid $state2-400;
       }
 
       &::after {
@@ -171,54 +186,148 @@
         position: absolute;
         width: 30px;
         height: 30px;
-        bottom:7%;
+        bottom: 7%;
         right: 5%;
 
-        border-bottom: 4px solid #b34b29;
-        border-right: 4px solid #b34b29;
+        border-bottom: 4px solid $state2-400;
+        border-right: 4px solid $state2-400;
       }
     }
 
-    &__breakpoint {
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      background: red;
-      border: 1px solid red;
-      border-radius: 50%;
-      top: 22%;
-      left: 10%;
-      transition: all .3s ease;
-      animation: hidden-point 1s  infinite;
+    &__menu {
+      background-color: vars.$state2-500;
+      font-size: 30px;
+      line-height: 25px;
+      color: $accent1-100;
+      cursor: pointer;
+      padding: 10px;
+      text-align: center;
+    }
+
+    &__menu-title {
+      display: none;
+      visibility: hidden;
+    }
+
+    &__wrapper {
+      display: flex;
+    }
+
+    .is-show {
+      transform: translateY(0) scaleY(1);
     }
   }
 }
 
 @include mz-media-custom-up($breakpoint-sm-min) {
   .header {
-    background-color: blue;
+    &__title-top {
+      display: flex;
+      flex-direction: column;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 65%;
+        border-top: $accent1-600 solid;
+        top: 50%;
+        right: 0;
+      }
+    }
+
+    &__block-left {
+      flex-basis: 20%;
+    }
+
+    &__block-center {
+      flex-basis: 50%;
+    }
+
+    &__block-right {
+      flex-basis: 30%;
+      white-space: break-word;
+      display: block;
+      visibility: visible;
+      border: 3px solid $accent1-700;
+      padding: 15px;
+    }
+
+    &__title-center {
+      font-size: 53px;
+    }
+
+    &__title-bottom {
+      & li:nth-child(n) {
+        font-size: 18px;
+      }
+    }
+
+    &__title-special {
+      font-size: 16px;
+    }
+
+    &__info {
+      @include flex-box(column, center, center);
+      font-weight: bold;
+    }
+
+    &__video-wrapper {
+      display: none;
+      visibility: hidden;
+    }
+
+    &__languge {
+      @include flex-box(column, center, center);
+      text-align: center;
+    }
+
+    &__languge-vn {
+      margin-bottom: 10px;
+      text-decoration-line: underline;
+    }
+
+    // &__languge-us {
+    //   color: $state2-400;
+    //   font-weight: bold;
+    // }
+
+    &__logo {
+      // width: 40%;
+    }
+
+    &__menu {
+      // width: 40%;
+    }
+
+    .is-show {
+      transform: translateY(0) scaleY(1);
+    }
   }
 }
 
-@include mz-media-custom-up($breakpoint-md-min) {
-  .header {
-    background-color: yellow;
-  }
-}
+// @include mz-media-custom-up($breakpoint-md-min) {
+//   .header {
+//     background-color: yellow;
+//   }
+// }
 
-@include mz-media-custom-up($breakpoint-lg-min) {
-  .header {
-    background-color: pink;
-  }
-}
+// @include mz-media-custom-up($breakpoint-lg-min) {
+//   .header {
+//     background-color: pink;
+//   }
+// }
 
-@include mz-media-custom-up($breakpoint-xl-min) {
-  .header {
-    background-color: brown;
-  }
-}
+// @include mz-media-custom-up($breakpoint-xl-min) {
+//   .header {
+//     background-color: $state2-500;
+//   }
+// }
 
 @keyframes hidden-point {
-  from {opacity: 1;}
-  to {opacity: 0;}
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

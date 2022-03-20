@@ -4,6 +4,10 @@ body {
   font-size: 14px;
 }
 
+html {
+  position: relative;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,16 +17,51 @@ body {
 #app {
   width: 100%;
   height: 100%;
-  position: relative;
 }
 
 img {
   display: block;
   max-width: 100%;
+  width: 100%;
 }
 
 .container {
-  width: 100%;
-  padding: 0 15px;
-  margin: 0 0;
- }
+  // width: 100%;
+  padding: 0 16px;
+  margin: 0;
+
+  @media (min-width: $breakpoint-sm-min) {
+    width: $container-sm-width;
+    max-width: $container-sm-width;
+    // padding: 0 16px;
+    margin: auto;
+  }
+
+  // @media (min-width: $breakpoint-md-min){
+  //   width: $container-md-width;
+  //   max-width: $container-md-width;
+  //   padding: 0 16px;
+  //   margin: auto;
+  // }
+
+  @media (min-width: $breakpoint-lg-min) {
+    width: $container-lg-width;
+    max-width: $container-lg-width;
+    padding: 0 16px;
+    margin: auto;
+  }
+
+  @media (min-width: var(--breakpoint-xl)) {
+    width: $container-xl-width;
+    max-width: $container-xl-width;
+    padding: 0 16px;
+    margin: auto;
+  }
+}
+
+@mixin mz-media-custom-down($_max-width) {
+  @media (max-width: $_max-width) {
+    @content;
+  }
+}
+
