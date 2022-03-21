@@ -51,7 +51,9 @@ const storeData = createStore({
   },
 
   getters: {},
+
   mutations: {},
+  
   actions: {},
 });
 

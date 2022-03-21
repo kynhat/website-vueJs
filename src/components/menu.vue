@@ -12,12 +12,20 @@
           <div class="menu__product" v-for="item in listItem" :key="item.id">
             <img class="menu__product-image" :src="IMAGE_URL + item.src" />
             <div class="menu__wrapper">
-              <div class="menu__product-title">{{ item.title }}</div>
+              <div class="menu__product-title">
+                <span>{{ item.title }}</span>
+              </div>
               <div>*****</div>
-              <div class="menu__product-desc"> A popular streetfood which has crispy and golden brown shell,...</div>
-              <div class="menu__product-price">{{ item.price }}</div>
+              <div class="menu__product-desc">
+                A popular streetfood which has crispy and golden brown shell,...
+              </div>
+              <div class="menu__product-price">
+                <span>Price</span>
+                <span> {{ item.price }}</span>
+                <span>VND</span>
+              </div>
               <div class="menu__product-count">1</div>
-              <div class="menu__product-btn-order">order now</div>
+              <div class="menu__product-btn-order btn-border">order now</div>
             </div>
           </div>
         </div>
